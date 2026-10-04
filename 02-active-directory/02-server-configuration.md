@@ -54,5 +54,47 @@ Screenshot confirming active IPv4 connectivity and the current DHCP-based networ
 
 <img width="631" height="368" alt="Screenshot 2026-10-04 192446" src="https://github.com/user-attachments/assets/f8ced416-bee2-47b4-b8bc-8e0ef100f33d" />
 
+## 3. Initial Network Details
+
+The server was initially configured to obtain its IPv4 configuration through DHCP.
+
+The following network information was identified before configuring a static address:
+
+| Setting | Value |
+|---|---|
+| IPv4 Address | 10.0.2.15 |
+| Subnet Mask | 255.255.255.0 |
+| Default Gateway | 10.0.2.2 |
+| DHCP | Enabled |
+| DHCP Server | 10.0.2.2 |
+| DNS Servers | 194.168.4.100 / 194.168.8.100 |
+
+The server was successfully communicating through the VirtualBox NAT network.
+
+### Evidence
+
+**Evidence 05 — Current Network Details**
+
+Screenshot showing the DHCP-assigned IPv4 address, subnet mask, gateway and DNS configuration.
+
+<img width="359" height="308" alt="Screenshot 2026-10-04 192823" src="https://github.com/user-attachments/assets/8c221b76-e05d-409e-aef3-c0a97c069eeb" />
+
+
+## 4. IPv4 Network Configuration
+
+The Ethernet adapter properties were reviewed to prepare the server for static IPv4 configuration.
+
+Internet Protocol Version 4 (TCP/IPv4) was selected because the Domain Controller will require a predictable network address.
+
+### Evidence
+
+**Evidence 06 — Ethernet Properties**
+
+Screenshot showing the Ethernet adapter properties and available IPv4 networking component.
+
+<img width="739" height="627" alt="image" src="https://github.com/user-attachments/assets/5db4d059-8714-4b25-95f5-e3c2a1baf697" />
+
+
+
 
 
