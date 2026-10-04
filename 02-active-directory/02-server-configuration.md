@@ -32,3 +32,27 @@ The initial automatically generated server hostname was identified before config
 
 The server was successfully renamed to `DOM-DC01`.
 
+
+## 2. Initial Network Configuration
+
+The server was initially configured to obtain its IPv4 network configuration automatically through DHCP.
+
+The Ethernet adapter was verified to have active IPv4 connectivity before changing the configuration.
+
+### Evidence
+
+**Evidence 03 — Network Adapter**
+
+Screenshot showing the Ethernet network adapter configured for the lab server.
+
+<img width="737" height="380" alt="Screenshot 2026-10-04 192300" src="https://github.com/user-attachments/assets/6218a78d-a1b0-4c3b-bdc3-1437988e0b01" />
+
+
+**Evidence 04 — Ethernet Status**
+
+Screenshot confirming active IPv4 connectivity and the current DHCP-based network connection.
+
+<img width="631" height="368" alt="Screenshot 2026-10-04 192446" src="https://github.com/user-attachments/assets/f8ced416-bee2-47b4-b8bc-8e0ef100f33d" />
+
+
+
