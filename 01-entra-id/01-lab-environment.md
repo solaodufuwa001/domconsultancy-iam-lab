@@ -6,7 +6,7 @@ Create and establish the Microsoft Entra ID environment that will be used throug
 
 ## Lab Environment
 
-| Component | Configuration |
+| Component |Configuration |
 |---|---|
 | Organisation | DomConsultancy |
 | Identity Platform | Microsoft Entra ID |
