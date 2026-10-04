@@ -122,7 +122,7 @@ The device status was treated as contextual information and not, by itself, evid
 ## Evidence 21 — Failed Sign-in Device Information
 
 
-<img width="389" height="247" alt="Screenshot 2026-09-30 152508" src="https://github.com/user-attachments/assets/a5ce6699-f69b-49c3-bc6f-8268551060b7" />
+<img width="648" height="648" alt="Screenshot 2026-09-30 152508" src="https://github.com/user-attachments/assets/a5ce6699-f69b-49c3-bc6f-8268551060b7" />
 
 
 ---
