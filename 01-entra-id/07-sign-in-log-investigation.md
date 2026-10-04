@@ -90,7 +90,8 @@ Additional events and contextual information would be required before determinin
 
 <br><br>
 
-<img width="418" height="230" alt="Screenshot 2026-09-30 151424" src="https://github.com/user-attachments/assets/655d3023-6426-4764-a92d-2d46559d3cd9" />
+<img width="648" height="406" alt="Screenshot 2026-09-30 151424" src="https://github.com/user-attachments/assets/655d3023-6426-4764-a92d-2d46559d3cd9" />
+
 <br><br>
 ---
 
@@ -107,7 +108,7 @@ No malicious activity was concluded from the location alone.
 ## Evidence 20 — Failed Sign-in Location Information
 
 
-<img width="387" height="216" alt="Screenshot 2026-09-30 152306" src="https://github.com/user-attachments/assets/5efea754-7eeb-40db-aa63-21c6decc6128" />
+<img width="500" height="500" alt="Screenshot 2026-09-30 152306" src="https://github.com/user-attachments/assets/5efea754-7eeb-40db-aa63-21c6decc6128" />
 
 ---
 
@@ -122,7 +123,7 @@ The device status was treated as contextual information and not, by itself, evid
 ## Evidence 21 — Failed Sign-in Device Information
 
 
-<img width="648" height="648" alt="Screenshot 2026-09-30 152508" src="https://github.com/user-attachments/assets/a5ce6699-f69b-49c3-bc6f-8268551060b7" />
+<img width="500" height="500" alt="Screenshot 2026-09-30 152508" src="https://github.com/user-attachments/assets/a5ce6699-f69b-49c3-bc6f-8268551060b7" />
 
 
 ---
