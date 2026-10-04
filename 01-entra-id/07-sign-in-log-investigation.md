@@ -36,7 +36,7 @@ Sign-in logs provide security administrators with visibility into authentication
 
 ## Evidence 18 — Sarah Sign-in Authentication Details
 
-<img width="426" height="262" alt="Screenshot 2026-09-30 145519" src="https://github.com/user-attachments/assets/8a95b8cd-abff-4959-a740-c9595f90eee1" />
+<img width="500" height="500" alt="Screenshot 2026-09-30 145519" src="https://github.com/user-attachments/assets/8a95b8cd-abff-4959-a740-c9595f90eee1" />
 
 
 ---
