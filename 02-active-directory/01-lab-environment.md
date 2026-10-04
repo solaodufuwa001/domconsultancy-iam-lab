@@ -1,4 +1,4 @@
-<img width="535" height="465" alt="Screenshot 2026-10-04 174256" src="https://github.com/user-attachments/assets/d54febe3-6ac6-423d-bb0d-0c4d6c30c643" /><img width="535" height="465" alt="Screenshot 2026-10-04 174256" src="https://github.com/user-attachments/assets/f50b286b-a8de-4f39-8535-09cb3cd83416" /># Task 1 — Active Directory Lab Environment
+# Task 1 — Active Directory Lab Environment
 
 ## Objective
 
