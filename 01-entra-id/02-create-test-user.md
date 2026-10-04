@@ -28,5 +28,5 @@ This supports the principle of least privilege and allows access controls to be 
 
 The screenshot below confirms that the Alice Johnson test account was successfully created in Microsoft Entra ID.
 
-![Alice Johnson User Created](<img width="765" height="450" alt="Screenshot 2026-09-29 150053" src="https://github.com/user-attachments/assets/41f0ea7a-02fd-44b0-94be-b5aac80e370a" />
-)
+<img width="765" height="450" alt="Screenshot 2026-09-29 150053" src="https://github.com/user-attachments/assets/41f0ea7a-02fd-44b0-94be-b5aac80e370a" />
+
