@@ -121,7 +121,7 @@ The audit event provides evidence through the following fields:
   
 - **Modified Properties** — Confirms the affected group as DomConsultancy-Finance.
 
-<img width="388" height="289" alt="Screenshot 2026-10-01 144732" src="https://github.com/user-attachments/assets/6cb4ad6a-b18e-40d1-aa0a-afd41c7e3d77" />
+<img width="450" height="289" alt="Screenshot 2026-10-01 144732" src="https://github.com/user-attachments/assets/6cb4ad6a-b18e-40d1-aa0a-afd41c7e3d77" />
 
 ---
 
