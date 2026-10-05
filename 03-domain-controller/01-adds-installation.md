@@ -390,5 +390,235 @@ Screenshot showing Server Manager running successfully after the Domain Controll
 
 <img width="956" height="485" alt="Screenshot 2026-10-05 153317" src="https://github.com/user-attachments/assets/bdbf84da-e66f-4a3b-a505-6bbc7a6819c0" />
 
+## 18. Active Directory Management Tools Verification
+
+After the Domain Controller promotion and system restart, the Server Manager Tools menu was reviewed to verify that the Active Directory management tools were available.
+
+The following Active Directory management tools were present:
+
+- Active Directory Administrative Center
+- Active Directory Domains and Trusts
+- Active Directory Sites and Services
+- Active Directory Users and Computers
+- Active Directory Module for Windows PowerShell
+- DNS
+- Group Policy Management
+
+Server Manager also displayed the **AD DS** and **DNS** roles, confirming that the required Active Directory and DNS services had been installed.
+
+This provided initial verification that `DOM-DC01` had been successfully configured as an Active Directory Domain Controller.
+
+### Evidence
+
+**Evidence 20 — Active Directory Management Tools**
+
+Screenshot showing the Active Directory management tools available from Server Manager and the installed AD DS and DNS roles.
+
+<img width="853" height="486" alt="Screenshot 2026-10-05 153631" src="https://github.com/user-attachments/assets/442bfa2e-4b08-4838-9817-6370adb35639" />
+
+## 19. Active Directory Domain Verification
+
+Active Directory Users and Computers (ADUC) was opened after the Domain Controller promotion to verify that the new Active Directory domain had been created successfully.
+
+The ADUC console displayed the domain:
+
+`domconsultancy.local`
+
+The domain was accessible through the Active Directory management console, confirming that the Active Directory domain was successfully created and is available for administration.
+
+This provides direct verification that `DOM-DC01` is functioning as the Domain Controller for the newly created `domconsultancy.local` domain.
+
+### Evidence
+
+**Evidence 21 — Active Directory Domain**
+
+Screenshot showing the `domconsultancy.local` domain displayed in Active Directory Users and Computers.
+
+<img width="708" height="338" alt="Screenshot 2026-10-05 154137" src="https://github.com/user-attachments/assets/6f35de4b-5458-44db-ad04-6b3be81eb2f9" />
+
+## 20. Active Directory Domain Structure Verification
+
+The `domconsultancy.local` domain was expanded in Active Directory Users and Computers to verify the default Active Directory structure created during Domain Controller promotion.
+
+The following containers were displayed:
+
+- `Builtin`
+- `Computers`
+- `Domain Controllers`
+- `ForeignSecurityPrincipals`
+- `Managed Service Accounts`
+- `Users`
+
+The presence of the **Domain Controllers** container confirms that Active Directory has created the dedicated container used to manage Domain Controller computer accounts.
+
+The default `Users` and `Computers` containers were also created as part of the new Active Directory domain structure.
+
+### Evidence
+
+**Evidence 22 — Active Directory Domain Structure**
+
+Screenshot showing the expanded `domconsultancy.local` domain and its default Active Directory containers, including the `Domain Controllers` container.
+
+<img width="1433" height="694" alt="image" src="https://github.com/user-attachments/assets/fefccf7b-d210-4afe-bd39-97aa26838d15" />
+
+## 21. Domain Controller Object Verification
+
+The `Domain Controllers` container was opened in Active Directory Users and Computers to verify that the server had been successfully registered as a Domain Controller.
+
+The computer object `DOM-DC01` was displayed within the `Domain Controllers` container.
+
+The object was identified with the following properties:
+
+| Property | Value |
+|---|---|
+| Computer Name | `DOM-DC01` |
+| Object Type | Computer |
+| DC Type | Global Catalog (GC) |
+| Active Directory Site | `Default-First-Site-Name` |
+
+The presence of `DOM-DC01` within the `Domain Controllers` container confirms that the server has been successfully promoted and registered as a Domain Controller for the `domconsultancy.local` domain.
+
+The Global Catalog designation also confirms that the Domain Controller is configured to provide Global Catalog services within the Active Directory forest.
+
+### Evidence
+
+**Evidence 23 — Domain Controller Object**
+
+Screenshot showing `DOM-DC01` registered inside the `Domain Controllers` container with the Global Catalog (GC) designation.
+
+<img width="709" height="343" alt="Screenshot 2026-10-05 154703" src="https://github.com/user-attachments/assets/0f9535bf-e3bf-424b-a039-5202db7d0f56" />
+
+## 22. DNS Server Verification
+
+DNS Manager was opened after the Domain Controller promotion to verify that the DNS Server role was installed and available on `DOM-DC01`.
+
+The DNS Manager console successfully displayed `DOM-DC01` as the configured DNS server.
+
+DNS is a critical component of Active Directory because Active Directory clients use DNS to locate Domain Controllers and other domain services.
+
+### Evidence
+
+**Evidence 24 — DNS Manager**
+
+Screenshot showing `DOM-DC01` listed in DNS Manager as the configured DNS server.
+
+<img width="705" height="322" alt="Screenshot 2026-10-05 155100" src="https://github.com/user-attachments/assets/18a7365b-5d9d-4fa2-86ee-29bb5f3147f5" />
+
+## 23. DNS Zone Structure Verification
+
+The `DOM-DC01` DNS server was expanded in DNS Manager to review the DNS infrastructure created during the Active Directory Domain Services installation.
+
+The following DNS components were displayed:
+
+- Forward Lookup Zones
+- Reverse Lookup Zones
+- Trust Points
+- Conditional Forwarders
+- Root Hints
+- Forwarders
+
+The presence of these DNS components confirms that the DNS Server role was successfully installed and is available on `DOM-DC01`.
+
+The next step is to verify that the Active Directory DNS zone for `domconsultancy.local` was created successfully.
+
+### Evidence
+
+**Evidence 25 — DNS Zone Structure**
+
+Screenshot showing the DNS server structure and available DNS management components on `DOM-DC01`.
+
+<img width="706" height="335" alt="Screenshot 2026-10-05 155305" src="https://github.com/user-attachments/assets/f13f3f8e-e587-4118-a7f9-9287bd7e8232" />
+
+## 24. Active Directory DNS Zones
+
+The Forward Lookup Zones were reviewed in DNS Manager after the Domain Controller promotion.
+
+Two Active Directory-integrated DNS zones were created automatically:
+
+- `_msdcs.domconsultancy.local`
+- `domconsultancy.local`
+
+The `domconsultancy.local` zone provides DNS resolution for the Active Directory domain, while the `_msdcs` zone contains records required by Active Directory for locating domain controllers and other directory services.
+
+Both zones displayed a **Running** status, confirming that the Active Directory-integrated DNS zones were successfully created.
+
+### Evidence
+
+**Evidence 26 — Active Directory DNS Zones**
+
+Screenshot showing the Active Directory-integrated DNS zones created for the `domconsultancy.local` domain.
+
+<img width="1428" height="669" alt="image" src="https://github.com/user-attachments/assets/3ed64ed2-ce43-4427-bd30-e527565e6237" />
+
+## 25. Verify Active Directory DNS Records
+
+The `domconsultancy.local` Forward Lookup Zone was opened in DNS Manager to verify that DNS records had been created for the Active Directory domain.
+
+The zone contained the expected Active Directory DNS records, including:
+
+- Start of Authority (SOA) record
+- Name Server (NS) record
+- Host (A) record for `DOM-DC01`
+- Host record resolving `DOM-DC01` to `10.0.2.10`
+- Active Directory service folders including `_msdcs`, `_sites`, `_tcp`, and `_udp`
+
+The DNS records confirm that `DOM-DC01` is registered as the DNS server for the `domconsultancy.local` domain and that its hostname resolves to the Domain Controller's static IPv4 address.
+
+### Evidence
+
+**Evidence 27 — Domain DNS Records**
+
+Screenshot showing the DNS records within the `domconsultancy.local` Forward Lookup Zone.
+
+<img width="1650" height="671" alt="image" src="https://github.com/user-attachments/assets/f7189efb-1236-42ff-933d-d015c1cfca0b" />
+
+## 26. Verify _msdcs DNS Records
+
+The `_msdcs` folder within the `domconsultancy.local` DNS zone was reviewed.
+
+The zone contains a Name Server (NS) record referencing:
+
+`dom-dc01.domconsultancy.local`
+
+The `_msdcs` namespace is used by Active Directory to support Domain Controller discovery and service location.
+
+### Evidence
+
+**Evidence 28 — _msdcs DNS Records**
+
+Screenshot showing the `_msdcs` DNS namespace and its Name Server record.
+
+<img width="1638" height="680" alt="image" src="https://github.com/user-attachments/assets/cef0804e-fd01-4bcb-896f-fc8adeea5824" />
+
+
+## Domain Controller Verification
+
+Active Directory Users and Computers was used to verify that `DOM-DC01`
+was successfully promoted to a Domain Controller.
+
+The existing Domain Controllers view confirmed:
+
+- Domain: `domconsultancy.local`
+- Domain Controller: `DOM-DC01`
+- DC Type: Global Catalog (GC)
+- Site: Default-First-Site-Name
+
+This confirms that `DOM-DC01` is functioning as the Domain Controller
+for the `domconsultancy.local` Active Directory domain.
+
+### Evidence
+
+<img width="709" height="338" alt="Screenshot 2026-10-05 160428" src="https://github.com/user-attachments/assets/79b670d3-71e7-47aa-be45-79a358529933" />
+
+
+
+
+
+
+
+
+
+
+
 
 
