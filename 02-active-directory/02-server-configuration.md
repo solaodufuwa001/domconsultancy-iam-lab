@@ -377,17 +377,18 @@ This confirmed that the available Windows updates had been successfully installe
 
 **Evidence 14 — Windows Updates Pending**
 
+Screenshot showing the security and system updates identified before remediation.
+
 <img width="584" height="383" alt="Screenshot 2026-10-04 203553" src="https://github.com/user-attachments/assets/799c09d6-ff1a-4a93-8898-ceeaec729dea" />
 
 
-Screenshot showing the security and system updates identified before remediation.
-
 **Evidence 15 — Windows Updates Completed**
+
+Screenshot showing Windows Update reporting that `DOM-DC01` is up to date.
 
 <img width="758" height="405" alt="Screenshot 2026-10-05 085033" src="https://github.com/user-attachments/assets/dba94dba-3503-4797-acde-075058e79855" />
 
 
-Screenshot showing Windows Update reporting that `DOM-DC01` is up to date.
 
 ### Security Consideration
 
