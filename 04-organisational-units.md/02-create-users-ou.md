@@ -51,3 +51,24 @@ The OU itself does **not** grant permissions. Access control will be implemented
 The screenshot confirms that the `Users` OU was successfully created inside the `DomConsultancy` root OU.
 
 <img width="1402" height="676" alt="image" src="https://github.com/user-attachments/assets/8529cb2a-9ab7-40aa-ba43-909d65608063" />
+
+## Accidental Deletion Protection
+
+The `Users` OU was configured with **Protect object from accidental deletion** enabled.
+
+This security control helps reduce the risk of the OU being accidentally deleted or moved during administrative activities.
+
+### Security Relevance
+
+Accidental deletion protection provides an additional administrative safeguard for important Active Directory containers.
+
+It does not replace appropriate permissions or change management controls, but provides an additional layer of protection against unintended administrative actions.
+
+### Evidence
+
+**Evidence 35 — Users OU Accidental Deletion Protection**
+
+The screenshot confirms that **Protect object from accidental deletion** is enabled for the `Users` OU.
+
+<img width="569" height="333" alt="Screenshot 2026-10-05 170216" src="https://github.com/user-attachments/assets/39b9e672-5d90-44b5-a29d-447e3c45b4d2" />
+
