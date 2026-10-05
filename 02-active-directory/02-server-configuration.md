@@ -395,3 +395,48 @@ Screenshot showing Windows Update reporting that `DOM-DC01` is up to date.
 Applying current security updates before installing Active Directory helps ensure that the server starts the domain controller deployment from a properly patched baseline.
 
 Keeping the operating system and security components updated is also an important security control for infrastructure servers.
+
+## 9. Date, Time and Time Zone Configuration
+
+Accurate date, time and time zone configuration was verified before proceeding with the Active Directory deployment.
+
+The initial server configuration was found to be using the incorrect **Pacific Standard Time** time zone.
+
+Because Active Directory authentication relies on Kerberos, accurate time configuration is important. Significant time differences between domain members and the Domain Controller can cause authentication failures.
+
+The server time zone was corrected using PowerShell:
+
+```powershell
+Set-TimeZone -Id "GMT Standard Time"
+```
+
+The configuration was then verified using:
+
+```powershell
+Get-TimeZone
+```
+
+The final configuration was confirmed as:
+
+| Setting | Value |
+|---|---|
+| Time Zone | GMT Standard Time |
+| Display Name | (UTC+00:00) Dublin, Edinburgh, Lisbon, London |
+| UTC Offset | 00:00 |
+| Daylight Saving Time | Supported |
+
+The correction ensures that `DOM-DC01` is configured for the UK time zone before Active Directory Services are installed.
+
+### Evidence
+
+**Evidence 16 — Date and Time Zone Correction**
+
+Screenshot showing the corrected `GMT Standard Time` configuration and confirming the UK time zone.
+
+<img width="658" height="185" alt="Screenshot 2026-10-05 090359" src="https://github.com/user-attachments/assets/37c47dbe-bb64-4b26-8d0c-81f0253cdd44" />
+
+### Security and Active Directory Consideration
+
+Accurate time synchronization is important for Active Directory because Kerberos authentication uses time-sensitive tickets.
+
+Maintaining consistent time across the Domain Controller and domain-joined systems helps prevent authentication failures and supports reliable security event logging.
