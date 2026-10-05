@@ -350,3 +350,47 @@ The external DNS configuration used during the initial Windows Server setup is t
 Once Active Directory Domain Services and the DNS Server role are installed, `DOM-DC01` will provide internal DNS services for the Active Directory domain.
 
 External DNS resolution will subsequently be handled through DNS forwarders configured on the internal DNS server.
+
+## 8. Windows Update and Security Patch Verification
+
+Before proceeding with the Active Directory configuration, Windows Update was checked to ensure that the Windows Server environment had the latest available security updates.
+
+The initial Windows Update check identified several pending updates, including:
+
+- Microsoft Defender Antivirus security intelligence update
+- Windows security update
+- .NET Framework security update
+- Windows Security platform update
+- Windows Malicious Software Removal Tool
+
+The available updates were installed and the server was restarted where required.
+
+Windows Update was then checked again to verify the final update status.
+
+The server reported:
+
+**"You're up to date"**
+
+This confirmed that the available Windows updates had been successfully installed.
+
+### Evidence
+
+**Evidence 14 — Windows Updates Pending**
+
+<img width="584" height="383" alt="Screenshot 2026-10-04 203553" src="https://github.com/user-attachments/assets/799c09d6-ff1a-4a93-8898-ceeaec729dea" />
+
+
+Screenshot showing the security and system updates identified before remediation.
+
+**Evidence 15 — Windows Updates Completed**
+
+<img width="758" height="405" alt="Screenshot 2026-10-05 085033" src="https://github.com/user-attachments/assets/dba94dba-3503-4797-acde-075058e79855" />
+
+
+Screenshot showing Windows Update reporting that `DOM-DC01` is up to date.
+
+### Security Consideration
+
+Applying current security updates before installing Active Directory helps ensure that the server starts the domain controller deployment from a properly patched baseline.
+
+Keeping the operating system and security components updated is also an important security control for infrastructure servers.
