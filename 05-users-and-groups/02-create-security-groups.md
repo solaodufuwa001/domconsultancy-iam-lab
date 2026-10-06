@@ -145,7 +145,8 @@ Sarah remains a standard user. Her access is associated with her security-group 
 
 The group membership properties show `Sarah Williams` as a member of `DomConsultancy-IT-Support`.
 
-<img width="386" height="292" alt="Screenshot 2026-10-06 180044" src="https://github.com/user-attachments/assets/0f56c33e-0310-4f19-b71c-88ae661e8f16" />
+<img width="772" height="599" alt="image" src="https://github.com/user-attachments/assets/dad1d3a5-93a2-4d94-bb98-39274ef01d41" />
+
 
 ---
 
