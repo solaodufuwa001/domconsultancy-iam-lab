@@ -103,3 +103,88 @@ The first Active Directory security group has been successfully created and popu
 - `Alice Johnson`
 
 This establishes the foundation for subsequent Active Directory access-control testing and the later hybrid identity integration with Microsoft Entra ID.
+
+## 6. Create IT Support Security Group
+
+A second security group was created to represent the IT Support role within DomConsultancy.
+
+The group was configured as:
+
+| Setting | Value |
+|---|---|
+| **Group Name** | `DomConsultancy-IT-Support` |
+| **Group Scope** | Global |
+| **Group Type** | Security |
+| **Location** | `domconsultancy.local/DomConsultancy/Groups` |
+
+### Evidence
+
+**Evidence 04 — IT Support Security Group**
+
+The Active Directory Users and Computers console shows the `DomConsultancy-IT-Support` security group inside the dedicated Groups OU.
+
+
+<img width="710" height="351" alt="Screenshot 2026-10-06 175110" src="https://github.com/user-attachments/assets/67d8bcfb-83da-41f1-ba51-dda2fe4d3e9a" />
+
+
+---
+
+## 7. Add Sarah Williams to the IT Support Group
+
+Sarah Williams was added to the `DomConsultancy-IT-Support` security group.
+
+This establishes a role-based relationship:
+
+**Sarah Williams → DomConsultancy-IT-Support → IT Support Resources**
+
+Sarah remains a standard user. Her access is associated with her security-group membership rather than being granted through direct administrative privileges.
+
+### Evidence
+
+**Evidence 09 — Sarah Williams IT Support Group Membership**
+
+The group membership properties show `Sarah Williams` as a member of `DomConsultancy-IT-Support`.
+
+<img width="386" height="292" alt="Screenshot 2026-10-06 180044" src="https://github.com/user-attachments/assets/0f56c33e-0310-4f19-b71c-88ae661e8f16" />
+
+---
+
+## 8. Role Separation
+
+The lab now contains two distinct business roles:
+
+| User | Security Group | Business Role |
+|---|---|---|
+| Alice Johnson | `DomConsultancy-Finance` | Finance Analyst |
+| Sarah Williams | `DomConsultancy-IT-Support` | IT Support Analyst |
+
+This separation demonstrates that users can be assigned access according to their business responsibilities.
+
+Alice does not receive IT Support group membership, and Sarah does not receive Finance group membership.
+
+This supports **role separation** and **least privilege**.
+
+---
+
+## 9. Hybrid Identity Relevance
+
+Both security groups are maintained in the on-premises Active Directory environment and are part of the lab's planned hybrid identity architecture.
+
+The intended flow is:
+
+**Active Directory → Users & Security Groups → Microsoft Entra Connect → Microsoft Entra ID → Hybrid Identity**
+
+The groups provide the on-premises identity and access-control foundation that will later be used when demonstrating synchronization and hybrid identity.
+
+Matching group names between Active Directory and Microsoft Entra ID do not by themselves establish synchronization. The synchronization relationship will be configured and tested during the hybrid identity phase.
+
+## Result
+
+The Active Directory user and group foundation is now established:
+
+- `Alice Johnson` → `DomConsultancy-Finance`
+- `Sarah Williams` → `DomConsultancy-IT-Support`
+- Both users are standard AD users.
+- Access is organised through security-group membership.
+- Finance and IT Support responsibilities are separated.
+- The environment is prepared for future access-control testing and hybrid identity integration.
