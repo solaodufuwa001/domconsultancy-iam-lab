@@ -110,6 +110,154 @@ domconsultancy.local
 
 The on-premises Active Directory user account for Alice Johnson was successfully created.
 
+# 3. Create Sarah Williams
+
+Sarah Williams represents an IT Support Analyst within DomConsultancy.
+
+Sarah provides a second standard user identity for demonstrating role separation and group-based access control.
+
+## User Configuration
+
+| Setting | Value |
+|---|---|
+| **First Name** | Sarah |
+| **Last Name** | Williams |
+| **Full Name** | Sarah Williams |
+| **Username** | `sarah.williams` |
+| **UPN** | `sarah.williams@domconsultancy.local` |
+| **Pre-Windows 2000 Logon** | `DOMCONSULTANCY\sarah.williams` |
+| **Account Type** | Standard User |
+| **OU Location** | `DomConsultancy/Users` |
+
+The account was configured with **User must change password at next logon** enabled.
+
+Password information is not documented in this portfolio for security reasons.
+
+## Active Directory Location
+
+Sarah Williams was created inside:
+
+`domconsultancy.local → DomConsultancy → Users`
+
+This maintains consistent identity organisation within the Active Directory environment.
+
+## Evidence
+
+### Evidence 05 — Sarah Williams AD Identity
+
+The New User window shows the identity information configured for Sarah Williams.
+
+![Sarah Williams AD Identity](../screenshots/Evidence-05-Sarah-Williams-AD-Identity.png)
+
+### Evidence 06 — Sarah Password Policy
+
+The password configuration stage shows the account password settings. The password itself is intentionally not documented.
+
+![Sarah Password Policy](../screenshots/Evidence-06-Sarah-Password-Policy.png)
+
+### Evidence 07 — Sarah User Confirmation
+
+The final user creation confirmation shows the configured Sarah Williams account before creation.
+
+![Sarah User Confirmation](../screenshots/Evidence-07-Sarah-User-Confirmation.png)
+
+### Evidence 08 — Sarah Williams Created
+
+The Active Directory Users and Computers console confirms that Sarah Williams was successfully created inside the dedicated Users OU.
+
+![Sarah Williams Created](../screenshots/Evidence-08-Sarah-Williams-Created.png)
+
+---
+
+# 4. User Role Separation
+
+The two standard users represent different business functions within DomConsultancy.
+
+| User | Business Role | AD Account Type |
+|---|---|---|
+| Alice Johnson | Finance Analyst | Standard User |
+| Sarah Williams | IT Support Analyst | Standard User |
+
+The users are intentionally kept as standard accounts. Business access is subsequently managed through security-group membership.
+
+This supports:
+
+- Role-based access control
+- Least privilege
+- Separation of responsibilities
+- Centralised access management
+- Easier user onboarding and offboarding
+
+The corresponding security groups are documented separately in:
+
+`02-create-security-groups.md`
+
+---
+
+# 5. IAM and Least-Privilege Relevance
+
+Creating users as standard accounts establishes a secure identity baseline.
+
+Neither Alice nor Sarah is granted unnecessary administrative privileges at account creation.
+
+Instead, access is assigned according to business responsibilities through security groups:
+
+**Alice Johnson → DomConsultancy-Finance**
+
+**Sarah Williams → DomConsultancy-IT-Support**
+
+This approach reduces the need to assign permissions directly to individual users and provides a more scalable access-management model.
+
+---
+
+# 6. Hybrid Identity Relevance
+
+These Active Directory identities form part of the on-premises identity foundation for the wider hybrid IAM lab.
+
+The planned architecture is:
+
+**Active Directory → Users & Security Groups → Microsoft Entra Connect → Microsoft Entra ID → Hybrid Identity**
+
+The on-premises identities intentionally use the internal domain:
+
+- `alice.johnson@domconsultancy.local`
+- `sarah.williams@domconsultancy.local`
+
+The existing Microsoft Entra environment contains the corresponding Alice Johnson cloud identity. The later hybrid identity phase will demonstrate how on-premises identities can be synchronised and represented in Microsoft Entra ID.
+
+Creating the identities separately at this stage allows the synchronization and identity-matching process to be demonstrated rather than assuming that similarly named accounts are automatically connected.
+
+---
+
+# 7. Security Considerations
+
+The following security practices were applied during user creation:
+
+- Standard user accounts were used instead of unnecessary administrative accounts.
+- Users were placed in a dedicated Users OU.
+- Passwords are not recorded in the public repository.
+- Users are required to change their password at first logon.
+- Access is intended to be managed through security groups.
+- Finance and IT Support responsibilities are separated.
+- Administrative privileges will only be introduced where required for a specific lab scenario.
+
+---
+
+# Result
+
+Two standard Active Directory identities have been successfully created:
+
+- **Alice Johnson** — Finance Analyst
+- **Sarah Williams** — IT Support Analyst
+
+Both accounts are located in:
+
+`domconsultancy.local → DomConsultancy → Users`
+
+The identities are now ready for group-based access control and subsequent IAM testing.
+
+The next stage is to use the security groups to control access based on each user's business role.
+
 The account is now available for subsequent IAM exercises involving:
 
 - Security group membership
