@@ -78,7 +78,7 @@ Following the principle of least privilege, administrative permissions will be a
 
 ## Evidence
 
-### Evidence 03 — Alice Johnson User Confirmation
+### Evidence 01 — Alice Johnson User Confirmation
 
 <img width="413" height="249" alt="Screenshot 2026-10-06 164951" src="https://github.com/user-attachments/assets/bac9ebfe-b1f4-4ca9-b33e-af4e754bb4c5" />
 
@@ -90,7 +90,7 @@ The screenshot shows the account details before creation, including:
 - Requirement to change the password at next logon
 - Creation location: `domconsultancy.local/DomConsultancy/Users`
 
-### Evidence 04 — Alice Johnson Created
+### Evidence 02 — Alice Johnson Created
 
 <img width="425" height="262" alt="Screenshot 2026-10-06 165219" src="https://github.com/user-attachments/assets/d8ae9d31-170e-4840-b438-d3afbb93893d" />
 
@@ -143,29 +143,33 @@ This maintains consistent identity organisation within the Active Directory envi
 
 ## Evidence
 
-### Evidence 05 — Sarah Williams AD Identity
+### Evidence 03 — Sarah Williams AD Identity
 
 The New User window shows the identity information configured for Sarah Williams.
 
-![Sarah Williams AD Identity](../screenshots/Evidence-05-Sarah-Williams-AD-Identity.png)
+<img width="416" height="253" alt="Screenshot 2026-10-06 175408" src="https://github.com/user-attachments/assets/53f7ed76-19a4-4bc5-a8f9-25036dd37c4c" />
 
-### Evidence 06 — Sarah Password Policy
+
+### Evidence 04 — Sarah Password Policy
 
 The password configuration stage shows the account password settings. The password itself is intentionally not documented.
 
-![Sarah Password Policy](../screenshots/Evidence-06-Sarah-Password-Policy.png)
 
-### Evidence 07 — Sarah User Confirmation
+<img width="417" height="251" alt="Screenshot 2026-10-06 175420" src="https://github.com/user-attachments/assets/f3bb34e7-6261-415e-a374-d451727ab834" />
+
+
+### Evidence 05 — Sarah User Confirmation
 
 The final user creation confirmation shows the configured Sarah Williams account before creation.
 
-![Sarah User Confirmation](../screenshots/Evidence-07-Sarah-User-Confirmation.png)
+<img width="415" height="248" alt="Screenshot 2026-10-06 175433" src="https://github.com/user-attachments/assets/e6948e77-6dc2-4265-aec3-b6d8ee164559" />
 
-### Evidence 08 — Sarah Williams Created
+
+### Evidence 06 — Sarah Williams Created
 
 The Active Directory Users and Computers console confirms that Sarah Williams was successfully created inside the dedicated Users OU.
 
-![Sarah Williams Created](../screenshots/Evidence-08-Sarah-Williams-Created.png)
+<img width="705" height="330" alt="Screenshot 2026-10-06 175452" src="https://github.com/user-attachments/assets/54d32d47-82d9-44fc-9418-6477ff66dc1c" />
 
 ---
 
