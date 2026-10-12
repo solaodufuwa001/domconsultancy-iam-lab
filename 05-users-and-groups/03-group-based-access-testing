@@ -1,0 +1,205 @@
+
+# Group-Based Access Control Testing
+
+## 1. Overview
+
+This lab demonstrates how NTFS permissions and Active Directory security groups can be used to control access to business resources.
+
+A Finance test resource was created on `DOM-DC01`. Access was assigned to the `DomConsultancy-Finance` security group, and inherited permissions for the general `Users` group were removed from the test folder.
+
+The Windows **Effective Access** feature was used to evaluate the permissions available to Alice Johnson and Sarah Williams.
+
+### Lab Environment
+
+| Setting | Value |
+|---|---|
+| Domain | `domconsultancy.local` |
+| Domain Controller | `DOM-DC01` |
+| Test Folder | `C:\Finance-Resources` |
+| Test File | `Finance-Confidential.txt` |
+| Finance Group | `DomConsultancy-Finance` |
+| IT Support Group | `DomConsultancy-IT-Support` |
+
+---
+
+## 2. Create the Finance Test Resource
+
+A dedicated folder named `Finance-Resources` was created on the C: drive of the domain controller.
+
+The folder contains a text file named `Finance-Confidential.txt`, which serves as the sample resource for this exercise.
+
+### Resource Structure
+
+```text
+C:\
+└── Finance-Resources
+    └── Finance-Confidential.txt
+## 3. Configure NTFS Permissions
+
+NTFS permissions were configured on `C:\Finance-Resources` to assign access to the `DomConsultancy-Finance` security group.
+
+The Finance group was granted Read, write and execute permissions without Full Control.
+
+### Permission Configuration
+
+| Principal | Permission | Purpose |
+|---|---|---|
+| `DomConsultancy-Finance` | Read, write and execute | Allows authorised Finance group members to access and modify the resource |
+| `Administrators` | Full control | Retains administrative management |
+| `SYSTEM` | Full control | Retains operating system access |
+| `CREATOR OWNER` | Full control for subfolders and files created by the owner | Preserves the existing creator-owner permission entry |
+
+Full Control was deliberately withheld from the Finance group.
+
+### Evidence 02 — Finance Group NTFS Permissions
+
+The screenshot shows the NTFS permissions assigned to `DomConsultancy-Finance`.
+
+
+---
+
+## 4. Isolate Finance Resource Access
+
+Initially, the Finance folder inherited permissions from the root of the C: drive, including entries for the general `Users` group.
+
+Inheritance was disabled on `C:\Finance-Resources`. The inherited entries were converted to explicit permissions, and the two general `Users` entries were removed from the Finance folder.
+
+This change was limited to the test folder. Permissions on the C: drive itself were not changed.
+
+The following entries were retained:
+
+- `DomConsultancy-Finance`
+- `Administrators`
+- `SYSTEM`
+- `CREATOR OWNER`
+
+### Evidence 03 — Finance Resource Group Isolation
+
+The screenshot shows the explicit permission entries remaining on the Finance test folder after the general `Users` entries were removed.
+
+![Finance Resource Group Isolation](../screenshots/Evidence-03-Finance-Resource-Group-Isolation.png)
+
+---
+
+## 5. Evaluate Alice Johnson's Effective Access
+
+Alice Johnson is a member of `DomConsultancy-Finance`.
+
+The Effective Access tab was used to evaluate Alice's permissions on `C:\Finance-Resources`, with the Finance group included in the group-membership calculation.
+
+### Evaluated Permissions
+
+Alice's evaluation showed that the following operations were allowed:
+
+- Traverse the folder and execute files
+- List folder contents and read data
+- Read attributes and extended attributes
+- Create files and write data
+- Create folders and append data
+- Write attributes and extended attributes
+
+Full Control and permission to delete subfolders and files were not granted.
+
+### Evidence 04 — Alice Finance Effective Access
+
+The screenshot shows Alice Johnson selected in Effective Access, with `DomConsultancy-Finance` included in the calculation.
+
+![Alice Finance Effective Access](../screenshots/Evidence-04-Alice-Finance-Effective-Access.png)
+
+### Interpretation
+
+The evaluation demonstrates the permissions available to Alice when the Finance group is included in the calculation. It supports the group-based access-control design, where permissions are assigned to a security group rather than directly to an individual user.
+
+---
+
+## 6. Evaluate Sarah Williams's Effective Access
+
+Sarah Williams is a member of `DomConsultancy-IT-Support`, not `DomConsultancy-Finance`.
+
+The Effective Access feature was used to evaluate Sarah's permissions on the Finance folder without adding the Finance group to the calculation.
+
+### Evaluated Permissions
+
+The evaluation showed that the listed file and folder operations were denied, including:
+
+- Traverse folder and execute file
+- List folder contents and read data
+- Read attributes and extended attributes
+- Create files and write data
+- Create folders and append data
+- Delete subfolders and files
+
+### Evidence 05 — Sarah Finance Access Denied
+
+The screenshot shows Sarah Williams selected in Effective Access, with the listed permissions denied by the file permissions.
+
+![Sarah Finance Access Denied](../screenshots/Evidence-05-Sarah-Finance-Access-Denied.png)
+
+### Interpretation
+
+Sarah has no effective access to the Finance resource under the evaluated permission configuration. This demonstrates the intended separation between Finance and IT Support access.
+
+---
+
+## 7. Access-Control Results
+
+The Effective Access evaluations demonstrate different access outcomes for the two test identities.
+
+| User | Business Role | Security Group | Evaluated Finance Access |
+|---|---|---|---|
+| Alice Johnson | Finance Analyst | `DomConsultancy-Finance` | Read, write and execute when Finance group membership is included |
+| Sarah Williams | IT Support Analyst | `DomConsultancy-IT-Support` | No effective access |
+
+This configuration demonstrates group-based access control: permissions are assigned according to business responsibilities rather than directly to individual users.
+
+It also highlights the importance of reviewing inherited permissions. Broad permissions inherited from a parent directory can unintentionally grant access to resources.
+
+### Validation Limitation
+
+Effective Access calculates permissions; it does not perform an actual sign-in or resource-access attempt.
+
+Alice could not complete an interactive logon to the domain controller because of its logon restrictions. A separate Windows client or member workstation will be used later for a real end-user access test.
+
+---
+
+## 8. IAM and Security Relevance
+
+This exercise demonstrates the following security concepts:
+
+- **Group-based access control:** Permissions are assigned to security groups.
+- **Least privilege:** The Finance group does not receive Full Control.
+- **Role separation:** Finance and IT Support have different access requirements.
+- **NTFS permissions:** Windows file-system access is controlled through security descriptors.
+- **Effective Access evaluation:** Permissions can be assessed for individual identities.
+- **Permission inheritance:** Inherited permissions must be reviewed when isolating sensitive resources.
+
+The test folder provides a controlled environment for evaluating access without changing permissions on the C: drive itself.
+
+---
+
+## 9. Hybrid IAM Relevance
+
+This exercise forms part of the on-premises identity and access-management foundation for the DomConsultancy hybrid IAM lab.
+
+The planned architecture is:
+
+**Active Directory → Users & Security Groups → Microsoft Entra Connect → Microsoft Entra ID → Hybrid Identity**
+
+The Finance and IT Support groups provide the on-premises access-control foundation for later hybrid identity exercises.
+
+This NTFS test does not configure or prove cloud synchronisation. Microsoft Entra integration and synchronisation will be configured and validated separately during the hybrid identity phase.
+
+---
+
+## Result
+
+A Finance test resource was created and protected using NTFS permissions assigned to `DomConsultancy-Finance`.
+
+The Effective Access evaluations demonstrated:
+
+- Alice's evaluated access when Finance group membership was included
+- Sarah's lack of effective access to the Finance resource
+- The absence of Full Control for the Finance group
+- Separation between Finance and IT Support access
+
+The lab now has a documented foundation for further access-control testing, including a real end-user access test from a separate Windows client and the later hybrid identity integration with Microsoft Entra ID.
