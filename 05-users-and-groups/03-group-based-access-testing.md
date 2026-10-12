@@ -37,7 +37,8 @@ C:\
 
 ### Evidence 01 — Finance Test Resource Created
 
-![Evidence 01 - Finance Resource Created](../screenshots/Evidence-01-Finance-Resource-Created.png)
+<img width="737" height="377" alt="Screenshot 2026-10-07 141757" src="https://github.com/user-attachments/assets/c3fc9364-54ad-4420-a203-37f03cc2a914" />
+
 
 **Evidence description:** Shows the Finance test folder and its sample text file on the domain controller.
 
@@ -64,7 +65,8 @@ The permissions were configured to support the Finance resource access test whil
 
 ### Evidence 02 — Finance Group NTFS Permissions
 
-![Evidence 02 - Finance Group NTFS Permissions](../screenshots/Evidence-02-Finance-Group-NTFS-Permissions.png)
+<img width="376" height="312" alt="Screenshot 2026-10-07 141945" src="https://github.com/user-attachments/assets/28bb4c05-db0f-4ecc-b661-16ab5b18b4f4" />
+
 
 **Evidence description:** Shows the NTFS permission configuration for the `DomConsultancy-Finance` group.
 
@@ -91,7 +93,8 @@ This configuration limits access through the general `Users` entries while prese
 
 ### Evidence 03 — Finance Resource Group Isolation
 
-![Evidence 03 - Finance Resource Group Isolation](../screenshots/Evidence-03-Finance-Resource-Group-Isolation.png)
+<img width="722" height="334" alt="Screenshot 2026-10-12 122414" src="https://github.com/user-attachments/assets/b8f789bd-3134-4809-8517-6105cb7f6de9" />
+
 
 **Evidence description:** Shows the Advanced Security Settings for the Finance resource after inheritance was disabled and the unnecessary `Users` entries were removed.
 
@@ -124,7 +127,8 @@ These results demonstrate how permissions assigned to a security group can provi
 
 ### Evidence 04 — Alice Finance Effective Access
 
-![Evidence 04 - Alice Finance Effective Access](../screenshots/Evidence-04-Alice-Finance-Effective-Access.png)
+<img width="946" height="472" alt="Screenshot 2026-10-12 123540" src="https://github.com/user-attachments/assets/9e1f4816-6819-47cd-a93f-89c46f9ee11a" />
+
 
 **Evidence description:** Shows the Effective Access evaluation for Alice Johnson with the `DomConsultancy-Finance` group included in the calculation.
 
@@ -154,7 +158,8 @@ This demonstrates the intended separation between Finance and IT Support access:
 
 ### Evidence 05 — Sarah Finance Access Denied
 
-![Evidence 05 - Sarah Finance Access Denied](../screenshots/Evidence-05-Sarah-Finance-Access-Denied.png)
+<img width="951" height="464" alt="Screenshot 2026-10-12 123649" src="https://github.com/user-attachments/assets/577aa8fc-09c8-4d6e-a114-572464e0dcc7" />
+
 
 **Evidence description:** Shows the Effective Access evaluation for Sarah Williams, with no Finance group added to the calculation and the evaluated permissions denied.
 
